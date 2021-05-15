@@ -43,7 +43,7 @@ router.post('/registrar', async(req, res) => {
 router.get('/todos', async(req, res) => {
     const client = await pool.connect()
     
-    client.query(`SELECT * FROM viviendas`, (error, resulset) => {
+    client.query(`SELECT tipo, zona, dormitorios, precio, tamano FROM viviendas`, (error, resulset) => {
         client.release(true);
 
         if (error) {
@@ -59,7 +59,7 @@ router.get('/tipos', async(req, res) => {
     const {tipo} = req.query;
     const client = await pool.connect()
     
-    client.query(`SELECT * FROM viviendas WHERE tipo = '${tipo}'`, (error, resulset) => {
+    client.query(`SELECT tipo, zona, dormitorios, precio, tamano FROM viviendas WHERE tipo = '${tipo}'`, (error, resulset) => {
         client.release(true);
 
         if (error) {
