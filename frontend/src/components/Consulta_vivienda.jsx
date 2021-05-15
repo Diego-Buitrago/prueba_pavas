@@ -22,19 +22,24 @@ const Consultar = () => {
 
     return (
         <>
-            <div className="col" id="div-compras">
+            <div className="col" id="div-consulta">
+                <h1>Consulta de viviendas</h1>
                 <form onSubmit={(e)=>consultar_tipo(e)}>
-                    <label>Mostrar vivienda de tipo</label>
-                    <select onChange={(e)=>{setTipo(e.target.value)}}>
-                        <option>----</option>
-                        <option value="todos">todos</option>
-                        <option value="unifamiliar">unifamiliar</option>
-                        <option value="colectiva">colectiva</option>
-                    </select>
-                    <input type="submit" name="enviando" value="mostrar"/>
+                    <table className="table-tipo">
+                        <tr>
+                            <td><label>Mostrar vivienda de tipo:</label></td>
+                            <td><select onChange={(e)=>{setTipo(e.target.value)}}>
+                                <option>----</option>
+                                <option value="todos">todos</option>
+                                <option value="unifamiliar">unifamiliar</option>
+                                <option value="colectiva">colectiva</option>
+                            </select></td>
+                            <td><input type="submit" name="enviando" value="mostrar"/></td>
+                        </tr>
+                    </table>
                 </form>
                 
-                <table className="table table-dark mt-5" id="table-compras">
+                <table className="table table-dark mt-5" id="table-consulta">
                 <tbody>
                     <tr>
                         <th>Tipo</th>
